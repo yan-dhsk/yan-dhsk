@@ -16,19 +16,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: generate SVG
+      - name: generate light SVG
         uses: cyprieng/github-breakout@v1
         with:
           github_username: ${{ github.repository_owner }}
           ball_color: "#8B0000"
           paddle_color: "#8B0000"
-          bricks_colors: "#ebedf0,#9be9a8,#40c463,#30a14e,#216e39"
+          bricks_colors: "github_light"
+          output_path: "./output-light/"
+
+      - name: generate dark SVG
+        uses: cyprieng/github-breakout@v1
+        with:
+          github_username: ${{ github.repository_owner }}
+          ball_color: "#8B0000"
+          paddle_color: "#8B0000"
+          bricks_colors: "github_dark"
+          output_path: "./output-dark/"
 
       - name: Move generated SVGs to temp
         run: |
           mkdir -p /tmp/breakout-images
-          ls -la output/
-          mv output/custom.svg /tmp/breakout-images/breakout-custom.svg
+          mv output-light/custom.svg /tmp/breakout-images/breakout-light.svg
+          mv output-dark/custom.svg /tmp/breakout-images/breakout-dark.svg
 
       - name: Configure git
         run: |
