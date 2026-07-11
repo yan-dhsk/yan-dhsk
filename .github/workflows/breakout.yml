@@ -1,28 +1,10 @@
-name: generate breakout svg
-
-on:
-  schedule:
-    - cron: "0 */24 * * *"
-  workflow_dispatch:
-
-jobs:
-  generate-svg:
-    permissions:
-      contents: write
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: generate light SVG
         uses: cyprieng/github-breakout@v1
         with:
           github_username: ${{ github.repository_owner }}
           ball_color: "#8B0000"
           paddle_color: "#8B0000"
-          bricks_colors: "github_light"
+          bricks_colors: "#EBEDF0,#9BE9A8,#40C463,#30A14E,#216E39"
           output_path: "./output-light/"
 
       - name: generate dark SVG
@@ -31,7 +13,7 @@ jobs:
           github_username: ${{ github.repository_owner }}
           ball_color: "#8B0000"
           paddle_color: "#8B0000"
-          bricks_colors: "github_dark"
+          bricks_colors: "#161B22,#0E4429,#006D32,#26A641,#39D353"
           output_path: "./output-dark/"
 
       - name: Move generated SVGs to temp
@@ -39,6 +21,14 @@ jobs:
           mkdir -p /tmp/breakout-images
           mv output-light/custom.svg /tmp/breakout-images/breakout-light.svg
           mv output-dark/custom.svg /tmp/breakout-images/breakout-dark.svg
+
+      - name: Force dark background on dark SVG
+        run: |
+          # Troca qualquer fundo branco ou transparente por preto (#0d1117)
+          sed -i 's/fill="white"/fill="#0d1117"/g' /tmp/breakout-images/breakout-dark.svg
+          sed -i 's/fill="#ffffff"/fill="#0d1117"/g' /tmp/breakout-images/breakout-dark.svg
+          sed -i 's/fill="transparent"/fill="#0d1117"/g' /tmp/breakout-images/breakout-dark.svg
+          # (opcional) se o fundo for um <rect> com outra cor, ajuste aqui
 
       - name: Configure git
         run: |
