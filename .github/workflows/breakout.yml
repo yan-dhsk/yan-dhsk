@@ -1,4 +1,22 @@
-      - name: generate light SVG
+name: generate breakout svg
+
+on:
+  schedule:
+    - cron: "0 */24 * * *"
+  workflow_dispatch:
+
+jobs:
+  generate-svg:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+            - name: generate light SVG
         uses: cyprieng/github-breakout@v1
         with:
           github_username: ${{ github.repository_owner }}
