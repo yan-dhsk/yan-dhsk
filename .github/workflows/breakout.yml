@@ -22,6 +22,7 @@ jobs:
           github_username: ${{ github.repository_owner }}
           ball_color: "#8B0000"
           paddle_color: "#8B0000"
+          bricks_colors: "#fde0dc,#f4a9a0,#e2645a,#c0392b,#8B0000"
 
       - name: Move generated SVGs to temp
         run: |
