@@ -6,7 +6,6 @@
 
 </div>
 
-## Linguagens
 
 <div align="center">
 
@@ -14,7 +13,6 @@
 
 </div>
 
-## Contato
 
 <div align="center">
 
@@ -31,5 +29,5 @@
     media="(prefers-color-scheme: light)"
     srcset="https://raw.githubusercontent.com/yan-dhsk/yan-dhsk/github-breakout/images/breakout-light.svg"
   />
-  <img alt="Breakout Game" src="https://raw.githubusercontent.com/yan-dhsk/yan-dhsk/github-breakout/images/breakout-light.svg" />
+  <img alt="Breakout Game" src="https://raw.githubusercontent.com/yan-dhsk/yan-dhsk/github-breakout/images/breakout-dark.svg" />
 </picture>
