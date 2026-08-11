@@ -2,7 +2,7 @@
 
 ![Bem-Vindo](https://readme-typing-svg.demolab.com/?font=Fira+Code&pause=1000&color=FF0000&background=000000&center=true&vCenter=true&width=740&lines=Olá!+Eu+sou+Yan+:3;Bem-vindo+ao+meu+perfil!;)
 
-[![Estatísticas do github](https://streak-stats.demolab.com?user=yan-dhsk&theme=shadow-red&border_radius=6&locale=pt_BR&short_numbers=true&mode=weekly)](https://git.io/streak-stats)
+[![Estatísticas do github](https://streak-stats.demolab.com?user=yan-dhsk&theme=shadow-red&locale=pt_BR&mode=weekly)](https://git.io/streak-stats)
 
 </div>
 
